@@ -25,6 +25,12 @@
         Interface
     </div>
 
+    <li class="nav-item @if(Request::segment(2) == "about") active @endif">
+        <a class="nav-link " href="{{ route('admin.about') }}">
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>About</span></a>
+    </li>
+
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"

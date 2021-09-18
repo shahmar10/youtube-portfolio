@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Adminka\AboutController;
 use App\Http\Controllers\Adminka\AuthController;
 use App\Http\Controllers\Adminka\SettingController;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,9 @@ Route::group(['prefix' => '/admin','as'=>'admin.'], function(){
 
         Route::get('/logout',           [AuthController::class,'logout'] )->name('logout');
     });
+
+    Route::get('/about',                [AboutController::class,'index'])->name('about');
+    Route::post('/about',               [AboutController::class,'update'])->name('about.update');
+
 });
 
