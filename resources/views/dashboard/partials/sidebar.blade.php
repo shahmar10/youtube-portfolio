@@ -31,6 +31,12 @@
             <span>About</span></a>
     </li>
 
+    <li class="nav-item @if(Request::segment(2) == "skills") active @endif">
+        <a class="nav-link " href="{{ route('admin.skills.index') }}">
+            <i class="fas fa-fw fa-skull"></i>
+            <span>Skills</span></a>
+    </li>
+
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Adminka\AboutController;
 use App\Http\Controllers\Adminka\AuthController;
 use App\Http\Controllers\Adminka\SettingController;
+use App\Http\Controllers\Adminka\SkillController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/admin','as'=>'admin.'], function(){
@@ -23,6 +24,9 @@ Route::group(['prefix' => '/admin','as'=>'admin.'], function(){
 
     Route::get('/about',                [AboutController::class,'index'])->name('about');
     Route::post('/about',               [AboutController::class,'update'])->name('about.update');
+
+    Route::resource('skills',           SkillController::class);
+    Route::get('/sort',                [SkillController::class,'sort'])->name('skills.sort');
 
 });
 

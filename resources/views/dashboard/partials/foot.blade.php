@@ -17,6 +17,9 @@
     <script src="/adminka/js/demo/chart-area-demo.js"></script>
     <script src="/adminka/js/demo/chart-pie-demo.js"></script>
 
+    @stack('js')
+
+
 </body>
 
 </html>
