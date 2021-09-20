@@ -17,6 +17,12 @@
             <span>Dashboard</span></a>
     </li>
 
+    <li class="nav-item @if(Request::segment(2) == "messages") active @endif">
+        <a class="nav-link " href="{{ route('admin.messages') }}">
+            <i class="fas fa-fw fa-comments"></i>
+            <span>Messages</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 

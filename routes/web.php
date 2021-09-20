@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Adminka\AboutController;
 use App\Http\Controllers\Adminka\AuthController;
+use App\Http\Controllers\Adminka\MessageController;
 use App\Http\Controllers\Adminka\SettingController;
 use App\Http\Controllers\Adminka\SkillController;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,11 @@ Route::group(['prefix' => '/admin','as'=>'admin.'], function(){
     Route::post('/about',               [AboutController::class,'update'])->name('about.update');
 
     Route::resource('skills',           SkillController::class);
-    Route::get('/sort',                [SkillController::class,'sort'])->name('skills.sort');
+    Route::get('/sort',                 [SkillController::class,'sort'])->name('skills.sort');
 
+    Route::get('/messages',             [MessageController::class,'index'])->name('messages');
+    Route::get('/message/{id}',         [MessageController::class,'message'])->name('message');
+    Route::get('/message/delete/{id}',  [MessageController::class,'destroy'])->name('message.destroy');
+    Route::post('/message/send',        [MessageController::class,'send'])->name('message.send');
 });
 
