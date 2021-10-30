@@ -43,18 +43,24 @@
             <span>Skills</span></a>
     </li>
 
+    <li class="nav-item @if(Request::segment(2) == "categories") active @endif">
+        <a class="nav-link " href="{{ route('admin.categories.index') }}">
+            <i class="fab fa-sistrix"></i>
+            <span>Categories</span></a>
+    </li>
+
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+            <i class="fas fa-fw fa-tasks"></i>
+            <span>Projects</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse @if(Request::segment(2)=="projects") show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
+                <h6 class="collapse-header">Projects</h6>
+                <a class="collapse-item" @if(Request::segment(2)=="projects") active @endif href="{{ route('admin.projects.index') }}"><i class="fa fa-project-diagram"></i>All projects</a>
+                <a class="collapse-item" @if(Request::segment(2)=="projects") active @endif href="{{ route('admin.projects.create') }}"><i class="fa fa-folder-plus"></i> Create</a>
             </div>
         </div>
     </li>

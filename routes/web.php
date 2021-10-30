@@ -3,8 +3,10 @@
 use App\Http\Controllers\Adminka\AboutController;
 use App\Http\Controllers\Adminka\AuthController;
 use App\Http\Controllers\Adminka\MessageController;
+use App\Http\Controllers\Adminka\ProjectController;
 use App\Http\Controllers\Adminka\SettingController;
 use App\Http\Controllers\Adminka\SkillController;
+use App\Http\Controllers\Adminka\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/admin','as'=>'admin.'], function(){
@@ -33,5 +35,15 @@ Route::group(['prefix' => '/admin','as'=>'admin.'], function(){
     Route::get('/message/{id}',         [MessageController::class,'message'])->name('message');
     Route::get('/message/delete/{id}',  [MessageController::class,'destroy'])->name('message.destroy');
     Route::post('/message/send',        [MessageController::class,'send'])->name('message.send');
+
+    Route::resource('projects',       ProjectController::class);
+    Route::get('/projects/{id}/media',          [ProjectController::class,'media'])->name('projects.media');
+    Route::post('/projects/{id}/media/add',     [ProjectController::class,'media_add'])->name('projects.media.add');
+    Route::get('/projects/{id}/media/destroy',  [ProjectController::class,'media_destroy'])->name('projects.media.destroy');
+    Route::get('/projects/{id}/media/sort',     [ProjectController::class,'media_sort'])->name('projects.media.sort');
+
+    Route::resource('categories',     CategoryController::class);
+
+
 });
 
